@@ -18,38 +18,39 @@ window.addEventListener("load", function() {
          console.log ("if");  
          
       } else if (isNaN(fuel) || isNaN(cargo)) {
-      alert("number is needed");
-      console.log("else if");
+         alert("number is needed");
+         console.log("else if");
       } else {
          //EVERTYTHING ELSE GOES HERE
-        let pilot = document.getElementById(pilotStatus);
-        pilotStatus.innerHTML = `Pilot ${pilotName.value} Ready.`;
+         let pilot = document.getElementById(pilotStatus);
+         pilotStatus.innerHTML = `Pilot ${pilotName.value} Ready.`;
 
-        let copilot = document.getElementById(copilotStatus);
-        copilotStatus.innerHTML = `Co-pilot ${copilotName.value} Ready.`;
+         let copilot = document.getElementById(copilotStatus);
+         copilotStatus.innerHTML = `Co-pilot ${copilotName.value} Ready.`;
 
-        let fuel = document.getElementById(fuelStatus < 10000);
-        fuelStatus.innerHTML = `The fuel level is at ${fuelLevel.value}. There is not enough fuel for the journey`;
-        faultyItems.style.visibility = 'visible';
-        document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch.";
-        launchStatusCheck.style.color = 'red';
-        console.log(fuelStatus);
-        
-        let cargo = document.getElementById(cargoMass > 10000);
-         cargoStatus.innerHTML = `The cargo mass is at ${cargoMass.value}. There is too much cargo for the journey`; 
-         faultyItems.style.visibility = 'visible'; 
-         document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch.";
-         launchStatusCheck.style.color = 'red';
-         console.log(cargoMass);
-          /*if (fuelLevel < 10000) {
+         if (fuelLevel.value < 10000) {
+            let fuel = document.getElementById("fuelStatus");
+            fuel.innerHTML = `The fuel level is at ${fuelLevel.value}. There is not enough fuel for the journey`;
             faultyItems.style.visibility = 'visible';
-            launchStatus = "Shuttle not ready for launch."
-            launchStatusCheck.style.color = 'red';
-            console.log(`The fuel level is at ${fuelStatus}. There is not enough fuel for the journey`);
-         */
-          }
-      })
-   });
+            document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch.";
+            launchStatusCheck.style.color = 'red';     
+         }
+
+         if (cargoMass.value > 10000) {
+            let cargo = document.getElementById("cargoStatus");
+            cargo.innerHTML = `The cargo mass is at ${cargoMass.value}. There is too much cargo for the journey`; 
+            faultyItems.style.visibility = 'visible'; 
+            document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch.";
+            launchStatusCheck.style.color = 'red'; 
+         }
+         if (fuelLevel.value > 10000 && cargoMass.value < 10000) {
+            document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
+            faultyItems.style.visibility = 'hidden';
+            launchStatusCheck.style.color = 'green'; 
+         }
+      }
+   })
+});
 ;
 
   
