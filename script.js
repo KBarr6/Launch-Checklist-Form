@@ -19,7 +19,7 @@
       });
 
 window.addEventListener("load", function() {
-   let form = document.querySelector("formSubmit");
+   let form = document.querySelector("form");
    //console.log('window loaded');
    form.addEventListener("submit", function(event) { 
       event.preventDefault();
